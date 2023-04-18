@@ -1,6 +1,6 @@
-# snapfu API
+# snapfu web api
 
-The backend service partnered with snapfu web.
+The backend service partnered with [snapfu web portal](https://github.com/litemikx/snapfu-web-portal).
 
 ## Requirements
 - NPM ^9.5.0

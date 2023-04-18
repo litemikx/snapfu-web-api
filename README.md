@@ -43,3 +43,5 @@ REACT_APP_AUTH_CODE=YOUR_CODE_HERE
 ```
 npm start
 ```
+
+If you like this or want to support my side projects, like this one, you can ![buymeacoffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)

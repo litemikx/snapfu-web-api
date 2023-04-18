@@ -48,3 +48,5 @@ npm start
 ```
 
 If you like this or want to support my side projects, like this one, you can ![buymeacoffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png){:height="51px" width="217px"}
+
+<a href="https://www.buymeacoffee.com/heymikko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important"></a>

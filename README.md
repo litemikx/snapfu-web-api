@@ -54,7 +54,7 @@ Run in the terminal:
 npm start
 ```
 
-To see a demo or how this works, you can check my blog post tutorial here: [How to Use: snapfu]()
+To see a demo or how this works, you can check my blog post tutorial here: [How to Use: snapfu](https://thisdevblogs.wordpress.com/2023/04/18/snapfu-a-mirth-connect-autobackup-system/)
 If you like this or want to support my side projects, like this one, you can:
 
 <a href="https://www.buymeacoffee.com/heymikko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important"></a>

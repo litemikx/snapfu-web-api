@@ -19,10 +19,9 @@ function getToken(code) {
             var clientSecret = credentials.web.client_secret;
             var clientId = credentials.web.client_id;
             var redirectUrl = credentials.web.redirect_uris[0];
-            
+
             var oauth2Client = new OAuth2Client(clientId, clientSecret, redirectUrl);
 
-            console.log('oauth2Client: ' + JSON.stringify(oauth2Client));
             oauth2Client.getToken(code, function (err, token) {
                 if (err) {
                     return cb(err);
@@ -41,8 +40,10 @@ function getToken(code) {
     getAuthorizationToken(token, function (err, file) {
         if (err) {
             console.log('err:', err);
+            return false;
         } else {
             console.log('authorization token is in:\n', file);
+            return true;
         }
     });
 }

@@ -26,11 +26,13 @@ cd snapfu-api
 npm install
 ```
 
-2. You'll need to link your Web app to your Gmail account for the app to start sending emails using the API. You can learn more about it here: https://developers.google.com/gmail/api/quickstart/js. On your Google Cloud Platform > API & Services > Credentials, you can get your client_secret JSON here. 
+2. Create following colletions in your MongoDB database:
+- accounts
+- connections
+- snaps
 
-3. Create a file named client_secret.json, paste the content from step 2, put the file under the auth/mail folder, could be a different directory if you want. 
+Note: See models folder for the collection structure.
 
-4. Rename .env.template to .env file and update values.
 
 ## Linking your Google Account 
 ### The app's signup process sends an email for the user to verify, this uses the GMAIL API.

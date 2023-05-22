@@ -4,14 +4,15 @@ require('dotenv').config();
 
 var app = require('express')(),
     http = require("http"),
+    fs = require('fs'),
     port = process.env.REACT_APP_PORT,
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     dbUrl = process.env.REACT_APP_PROT_MONGODB,
     cors = require('cors'),
-    getToken = process.env.REACT_APP_GET_TOKEN,
+    getToken = require(process.env.REACT_APP_GET_TOKEN),
     auth_code = process.env.REACT_APP_AUTH_CODE,
-    cred_expiry = process.env.REACT_APP_GCP_GMAIL_FILE['expiry_date'];
+    gcp_file = process.env.REACT_APP_GCP_GMAIL_FILE;
 
 
 mongoose.Promise = global.Promise;
@@ -37,18 +38,32 @@ var routes = require('./api/routes/mainRoutes');
 routes(app);
 
 
-app.listen(port, function() {
+app.listen(port, function () {
     console.log('Snapfu API server started on: ' + port);
     // Call snapController function start_all_snaps
     snapController.start_all_snaps_auto();
     // get current time in milliseconds
     var current_time = new Date().getTime();
-    // if current time is greater than expiry time, get new token
-    if (current_time > cred_expiry) {
-        getToken(auth_code);
-    } else {
-        console.log('Token for email sending is not expired');
-    }
+    var cred_expiry = 0;
+
+    fs.readFile(gcp_file, function (err, data) {
+        if (err) {
+            console.log(err);
+        }
+        var f = JSON.parse(data);
+        cred_expiry = f['expiry_date'];
+
+        // if current time is greater than expiry time, get new token
+        if (current_time > cred_expiry) {
+            if (getToken(auth_code)) {
+                console.log('INFO: Token for email sending is updated.');
+            } else {
+                console.log('ERROR: Token for email sending is expired.\nStop server and get new token by calling "node get_urls.js" in the terminal.\nUpdate env file with new auth code.');
+            }
+        } else {
+            console.log('INFO: Token for email sending is not expired.');
+        }
+    });
 });
 
 
